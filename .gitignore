@@ -1,0 +1,5 @@
+*.conf
+*.CONF
+*.env
+*.ENV
+node_modules/
