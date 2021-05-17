@@ -1,25 +1,10 @@
 const express = require("express");
 const router = express.Router()
+const {createConf,createUser,createSession,createCommitee} = require("../controlers/create")
 
-router.post("/conf",(req,res) => {
-    res.status(200).json(
-        {success:true, message:"create a conference"}
-    )
-})
-router.post("/:confid/user/",(req,res) => {
-    res.status(200).json(
-        {success:true, message:"create a user"}
-    )
-})
-router.post("/:confid/session",(req,res) => {
-    res.status(200).json(
-        {success:true, message:"create a conf session"}
-    )
-})
-router.post("/:confid/commite",(req,res) => {
-    res.status(200).json(
-        {success:true, message:"create a commitee"}
-    )
-})
+router.route("/conf").post(createConf)
+router.route("/:confid/user/").post(createUser)
+router.route("/:confid/session").post(createSession)
+router.route("/:confid/commite").post(createCommitee)
 
 module.exports = router;

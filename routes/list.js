@@ -1,50 +1,17 @@
 const express = require("express");
 const router = express.Router();
+const {getAllConf,getConf,getUser,
+       getUserShort,getUserAll,getSessions,
+       getSession,getCommitees,getCommitee} = require("../controlers/list")
 
-router.get("/:confid/all",(req,res) => {
-    res.status(200).json(
-        {success:true , message: "get all infos about conference"}
-    )
-})
-router.get("/allconfs",(req,res) => {
-    res.status(200).json(
-        {success:true, message:"get all conferences"}
-    )
-})
-router.get("/:confid/participants",(req,res) => {
-    res.status(200).json(
-        {success:true, message:"get all particpants"}
-    )
-})
-router.get("/:confid/participant/neit",(req,res) => {
-    res.status(200).json(
-        {success:true, message:"get specific info about user"}
-    )
-})
-router.get("/:confid/participant/all",(req,res) => {
-    res.status(200).json(
-        {success:true, message:"get all infos about a participant"}
-    )
-})
-router.get("/:confid/sessions",(req,res) => {
-    res.status(200).json(
-        {success:true, message:"get all sessions"}
-    )
-})
-router.get("/:confid/session/all",(req,res) => {
-    res.status(200).json(
-        {success:true, message:"get all infos about a session"}
-    )
-})
-router.get("/:confid/commitees",(req,res) => {
-    res.status(200).json(
-        {success:true, message:"get all commitees"}
-    )
-})
-router.get("/:confid/commitee/all",(req,res) => {
-    res.status(200).json(
-        {success:true, message:"get all about a commitee"}
-    )
-})
+router.route("/:confid/all").get(getAllConf)
+router.route("/allconfs").get(getConf)
+router.route("/:confid/participants").get(getUser)
+router.route("/:confid/participant/neit").get(getUserShort)
+router.route("/:confid/participant/all").get(getUserAll)
+router.route("/:confid/sessions").get(getSessions)
+router.route("/:confid/session/all").get(getSession)
+router.route("/:confid/commitees").get(getCommitees)
+router.route("/:confid/commitee/all").get(getCommitee)
 
 module.exports = router;
