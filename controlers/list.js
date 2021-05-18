@@ -8,7 +8,7 @@ exports.getConf = (req,res,next) => {
         {"message": "get all informations about a conference"}
     )
 };
-exports.getUser = (req,res,next) => {
+exports.getUsers = (req,res,next) => {
     res.status(200).json(
         {"message": "get all participants in conference"}
     )

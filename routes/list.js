@@ -1,17 +1,25 @@
 const express = require("express");
 const router = express.Router();
-const {getAllConf,getConf,getUser,
+const {getAllConf,getConf,getUsers,
        getUserShort,getUserAll,getSessions,
        getSession,getCommitees,getCommitee} = require("../controlers/list")
 
-router.route("/:confid/all").get(getAllConf)
-router.route("/allconfs").get(getConf)
-router.route("/:confid/participants").get(getUser)
-router.route("/:confid/participant/neit").get(getUserShort)
+const {deleteAllConf,deleteConf,deleteUsers,
+       deleteUserShort,deleteSessions,
+       deleteSession,deleteCommitees,deleteCommitee} = require("../controlers/delete")
+
+
+       const {updateConf,updateUserShort,
+              updateSession,updateCommitee} = require("../controlers/update")       
+
+router.route("/:confid/all").get(getAllConf).delete(deleteAllConf).put(updateConf)
+router.route("/allconfs").get(getConf).delete(deleteConf)
+router.route("/:confid/participants").get(getUsers).delete(deleteUsers)
+router.route("/:confid/participant/neit").get(getUserShort).delete(deleteUserShort).put(updateUserShort)
 router.route("/:confid/participant/all").get(getUserAll)
-router.route("/:confid/sessions").get(getSessions)
-router.route("/:confid/session/all").get(getSession)
-router.route("/:confid/commitees").get(getCommitees)
-router.route("/:confid/commitee/all").get(getCommitee)
+router.route("/:confid/sessions").get(getSessions).delete(deleteSessions)
+router.route("/:confid/session").get(getSession).delete(deleteSession).put(updateSession)
+router.route("/:confid/commitees").get(getCommitees).delete(deleteCommitees)
+router.route("/:confid/commitee").get(getCommitee).delete(deleteCommitee).put(updateCommitee)
 
 module.exports = router;
