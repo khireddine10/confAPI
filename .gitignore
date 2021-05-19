@@ -2,5 +2,4 @@
 *.CONF
 *.env
 *.ENV
-config/
 node_modules/
