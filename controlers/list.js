@@ -7,16 +7,19 @@ exports.getConf = (req,res,next) => {
     res.status(200).json(
         {"message": "get all informations about a conference"}
     )
+    
 };
 exports.getUsers = (req,res,next) => {
     res.status(200).json(
         {"message": "get all participants in conference"}
     )
+    console.log(res.newVar)
 };
 exports.getUserShort = (req,res,next) => {
     res.status(200).json(
         {"message":"get short infos about a user"}
     )
+    
 };
 exports.getUserAll = (req,res,next) => {
     res.status(200).json(

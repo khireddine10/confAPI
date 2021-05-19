@@ -1,10 +1,16 @@
 const express = require("express")
 const dotenv = require("dotenv");
-const app = express();
 const listRoutes = require("./routes/list");
 const creatRouter = require("./routes/create");
+const addSomeVars = require("./middlewar/addvars");
+const connectionDB = require("./config/dbconnection");
+
 
 dotenv.config({"path":"./config/config.env"})
+connectionDB();
+
+const app = express();
+app.use(addSomeVars)
 
 app.use("/api/v1/list",listRoutes)
 app.use("/api/v1/create",creatRouter)
