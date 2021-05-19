@@ -2,7 +2,7 @@ const express = require("express")
 const dotenv = require("dotenv");
 const listRoutes = require("./routes/list");
 const creatRouter = require("./routes/create");
-const addSomeVars = require("./middlewar/addvars");
+const addSomeVars = require("./middleware/addvars");
 const connectionDB = require("./config/dbconnection");
 
 
