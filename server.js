@@ -10,7 +10,11 @@ dotenv.config({"path":"./config/config.env"})
 connectionDB();
 
 const app = express();
+// custome middleware
 app.use(addSomeVars)
+
+// express middleware
+app.use(express.json());
 
 app.use("/api/v1/list",listRoutes)
 app.use("/api/v1/create",creatRouter)

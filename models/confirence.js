@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
 const {facebookRegex, instagramRegex, twitterRegex,telegramRegex,
        linkedinRegex, emailRegex, phoneRegex} = require("../utils/validators")
+const Schema = mongoose.Schema;
+
+
 const confSchema = new Schema({
     confNum: Number,
     confName: {
@@ -59,14 +62,6 @@ const confSchema = new Schema({
                 "please use valid twitter url",
             ]
         },
-        telegram: {
-            type: String,
-            unique: true,
-            match: [
-                telegramRegex,
-                "please use valid telegram url"
-            ]
-        },
         linkedin: {
             type: String,
             unique: true,
@@ -94,8 +89,8 @@ const confSchema = new Schema({
             required: [true, "you must add the acceptation date"]
         }
     }],
-    president: {},
-    speakers: {}
+    president: String ,
+    speakers: String
 })
 
 const confModel = mongoose.model("confModel", confSchema)
